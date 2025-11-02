@@ -1,0 +1,252 @@
+{
+  "photos": [
+    {
+      "id": "1",
+      "filename": "Photos/Events/Event_1.jpg",
+      "category": "events",
+      "subcategory": "competition",
+      "title": "Technical Conference",
+      "description": "Technical conference showcasing innovative engineering solutions",
+      "date": "2024-10-15",
+      "tags": ["conference", "technical", "innovation"],
+      "featured": true
+    },
+    {
+      "id": "2",
+      "filename": "Photos/Events/Event_2.jpg",
+      "category": "events",
+      "subcategory": "competition",
+      "title": "Design Competition",
+      "description": "Students presenting their innovative design solutions",
+      "date": "2024-10-10",
+      "tags": ["competition", "design", "innovation"],
+      "featured": true
+    },
+    {
+      "id": "3",
+      "filename": "Photos/Events/Event_3.jpg",
+      "category": "events",
+      "subcategory": "seminar",
+      "title": "Technical Symposium",
+      "description": "Technical symposium with industry experts and academic presentations",
+      "date": "2024-09-28",
+      "tags": ["symposium", "technical", "academic"],
+      "featured": true
+    },
+    {
+      "id": "4",
+      "filename": "Photos/Events/Event_5.jpg",
+      "category": "events",
+      "subcategory": "ceremony",
+      "title": "Awards Ceremony",
+      "description": "Recognition ceremony for outstanding student achievements",
+      "date": "2024-09-20",
+      "tags": ["awards", "ceremony", "recognition"],
+      "featured": true
+    },
+    {
+      "id": "5",
+      "filename": "Photos/Events/Event_6.jpg",
+      "category": "events",
+      "subcategory": "cultural",
+      "title": "Cultural Integration",
+      "description": "Cultural integration event bringing together diverse student community",
+      "date": "2024-09-15",
+      "tags": ["cultural", "integration", "community"],
+      "featured": true
+    },
+    {
+      "id": "6",
+      "filename": "Photos/Events/Hackthon_1.jpg",
+      "category": "events",
+      "subcategory": "competition",
+      "title": "Hackathon Event",
+      "description": "24-hour hackathon challenging students to develop innovative solutions",
+      "date": "2024-09-10",
+      "tags": ["hackathon", "innovation", "coding"],
+      "featured": true
+    },
+    {
+      "id": "7",
+      "filename": "Photos/Events/Home_3.jpg",
+      "category": "events",
+      "subcategory": "activity",
+      "title": "Team Activities",
+      "description": "Team building and collaborative activities among MESA members",
+      "date": "2024-09-05",
+      "tags": ["team", "activities", "collaboration"],
+      "featured": false
+    },
+    {
+      "id": "8",
+      "filename": "Photos/Events/Home_5.jpg",
+      "category": "events",
+      "subcategory": "innovation",
+      "title": "Innovation Events",
+      "description": "Innovation showcase and technology demonstration events",
+      "date": "2024-08-30",
+      "tags": ["innovation", "technology", "showcase"],
+      "featured": false
+    },
+    {
+      "id": "9",
+      "filename": "Photos/Seminar And Talks/Talk_1.jpg",
+      "category": "seminars",
+      "subcategory": "lecture",
+      "title": "Expert Lecture",
+      "description": "Industry expert sharing insights on latest engineering trends",
+      "date": "2024-10-20",
+      "tags": ["lecture", "expert", "industry"],
+      "featured": true
+    },
+    {
+      "id": "10",
+      "filename": "Photos/Seminar And Talks/Talk_2.jpg",
+      "category": "seminars",
+      "subcategory": "presentation",
+      "title": "Research Presentation",
+      "description": "Faculty and student research presentations",
+      "date": "2024-10-18",
+      "tags": ["research", "presentation", "academic"],
+      "featured": true
+    },
+    {
+      "id": "11",
+      "filename": "Photos/Seminar And Talks/Home_2.jpg",
+      "category": "seminars",
+      "subcategory": "engagement",
+      "title": "Student Engagement",
+      "description": "Interactive session with high student participation",
+      "date": "2024-10-15",
+      "tags": ["engagement", "interactive", "students"],
+      "featured": false
+    },
+    {
+      "id": "12",
+      "filename": "Photos/Seminar And Talks/Physicswallah_0 (1).jpg",
+      "category": "seminars",
+      "subcategory": "talk",
+      "title": "Physics Wallah Session",
+      "description": "Educational talk by Physics Wallah team on learning methodologies",
+      "date": "2024-04-11",
+      "tags": ["physicswallah", "education", "learning"],
+      "featured": true
+    },
+    {
+      "id": "13",
+      "filename": "Photos/Seminar And Talks/Physicswallah_0 (2).jpg",
+      "category": "seminars",
+      "subcategory": "talk",
+      "title": "Educational Session",
+      "description": "Interactive educational session with student participation",
+      "date": "2024-04-11",
+      "tags": ["education", "interactive", "session"],
+      "featured": true
+    },
+    {
+      "id": "14",
+      "filename": "Photos/Seminar And Talks/Physicswallah_0 (3).jpg",
+      "category": "seminars",
+      "subcategory": "talk",
+      "title": "Interactive Learning",
+      "description": "Interactive learning session promoting innovative teaching methods",
+      "date": "2024-04-11",
+      "tags": ["learning", "interactive", "innovation"],
+      "featured": true
+    },
+    {
+      "id": "15",
+      "filename": "Photos/Seminar And Talks/Physicswallah_0 (4).jpg",
+      "category": "seminars",
+      "subcategory": "talk",
+      "title": "Knowledge Sharing",
+      "description": "Knowledge sharing session on career guidance and opportunities",
+      "date": "2024-04-11",
+      "tags": ["knowledge", "career", "guidance"],
+      "featured": false
+    },
+    {
+      "id": "16",
+      "filename": "Photos/Seminar And Talks/Physicswallah_0 (5).jpg",
+      "category": "seminars",
+      "subcategory": "talk",
+      "title": "Learning Session",
+      "description": "Comprehensive learning session covering educational methodologies",
+      "date": "2024-04-11",
+      "tags": ["learning", "methodology", "education"],
+      "featured": false
+    },
+    {
+      "id": "17",
+      "filename": "Photos/Seminar And Talks/Workshop_1.jpg",
+      "category": "seminars",
+      "subcategory": "workshop",
+      "title": "Technical Workshop",
+      "description": "Hands-on technical workshop with practical demonstrations",
+      "date": "2024-09-25",
+      "tags": ["workshop", "technical", "hands-on"],
+      "featured": false
+    },
+    {
+      "id": "18",
+      "filename": "Photos/Industry trip/Ind_Trip_1.jpg",
+      "category": "industry_visits",
+      "subcategory": "manufacturing",
+      "title": "Manufacturing Plant",
+      "description": "Educational visit to modern manufacturing facility",
+      "date": "2024-08-20",
+      "tags": ["industry", "manufacturing", "visit"],
+      "featured": true
+    },
+    {
+      "id": "19",
+      "filename": "Photos/Industry trip/Ind_Trip_2.jpg",
+      "category": "industry_visits",
+      "subcategory": "automotive",
+      "title": "Automotive Industry",
+      "description": "Visit to automotive manufacturing plant and assembly line",
+      "date": "2024-08-20",
+      "tags": ["automotive", "industry", "manufacturing"],
+      "featured": true
+    },
+    {
+      "id": "20",
+      "filename": "Photos/Industry trip/Ind_Trip_3.jpg",
+      "category": "industry_visits",
+      "subcategory": "research",
+      "title": "Research Facility",
+      "description": "Tour of advanced research and development facility",
+      "date": "2024-08-20",
+      "tags": ["research", "facility", "development"],
+      "featured": false
+    }
+  ],
+  "categories": {
+    "events": {
+      "name": "Events & Competitions",
+      "description": "Photos from MESA events, competitions, and activities",
+      "subcategories": ["competition", "ceremony", "cultural", "activity", "innovation"]
+    },
+    "seminars": {
+      "name": "Seminars & Tech Talks",
+      "description": "Photos from seminars, talks, and educational sessions",
+      "subcategories": ["lecture", "presentation", "talk", "workshop", "engagement"]
+    },
+    "industry_visits": {
+      "name": "Industrial Visits",
+      "description": "Photos from educational industry visits and tours",
+      "subcategories": ["manufacturing", "automotive", "research"]
+    },
+    "team": {
+      "name": "Team Photos",
+      "description": "Photos of MESA team members and activities",
+      "subcategories": ["group", "individual", "activities"]
+    }
+  },
+  "settings": {
+    "maxPhotosPerPage": 12,
+    "featuredPhotosLimit": 6,
+    "autoUpdateInterval": 300000,
+    "supportedFormats": ["jpg", "jpeg", "png", "webp"]
+  }
+}

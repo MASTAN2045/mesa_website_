@@ -1,0 +1,227 @@
+{
+  "team": {
+    "faculty": [
+      {
+        "id": "faculty-1",
+        "name": "Dr. Sagi Rathna Prasad",
+        "position": "MESA Faculty Advisor, Assistant Professor",
+        "department": "Mechanical Engineering",
+        "email": "faculty.advisor@iitpkd.ac.in",
+        "phone": "+91-9876543210",
+        "image": "photos/Team Members/Dr.Sagi Rathna Prasad-Faculty Advisor.jpg",
+        "bio": "MESA Faculty Advisor and Assistant Professor guiding student activities and development.",
+        "specialization": ["Manufacturing", "Design", "Research"],
+        "active": true
+      }
+    ],
+    "core_team": [
+      {
+        "id": "president-1",
+        "name": "Sanjay",
+        "position": "President",
+        "year": "4th Year",
+        "branch": "Mechanical Engineering",
+        "email": "president@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543211",
+        "image": "photos/Team Members/SANJAY-President.jpg",
+        "bio": "Leading MESA with vision for innovation and student engagement.",
+        "responsibilities": ["Overall leadership", "Strategic planning", "External relations"],
+        "active": true
+      },
+      {
+        "id": "general-secretary-1",
+        "name": "Sangamesh",
+        "position": "General Secretary",
+        "year": "3rd Year",
+        "branch": "Mechanical Engineering",
+        "email": "secretary@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543212",
+        "image": "photos/Team Members/SANGAMESH-General Secretary.jpg",
+        "bio": "Managing documentation and communication for MESA.",
+        "responsibilities": ["Documentation", "Communication", "Meeting coordination"],
+        "active": true
+      },
+      {
+        "id": "joint-secretary-1",
+        "name": "Gopi Chand",
+        "position": "Joint Secretary",
+        "year": "3rd Year",
+        "branch": "Mechanical Engineering",
+        "email": "jointsec@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543213",
+        "image": "photos/Team Members/GOPI CHAND-Joint Secratary.jpg",
+        "bio": "Supporting secretarial duties and internal coordination.",
+        "responsibilities": ["Internal coordination", "Event support", "Member relations"],
+        "active": true
+      }
+    ],
+    "event_coordinators": [
+      {
+        "id": "event-manager-1",
+        "name": "Pratham",
+        "position": "Event Manager",
+        "year": "3rd Year",
+        "branch": "Mechanical Engineering",
+        "email": "events@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543214",
+        "image": "photos/Team Members/PRATHAM-Event Manager.jpg",
+        "bio": "Leading event planning and execution for MESA activities.",
+        "responsibilities": ["Event planning", "Team coordination", "Logistics management"],
+        "active": true
+      },
+      {
+        "id": "deputy-event-manager-1",
+        "name": "Nunna Kumar",
+        "position": "Deputy Event Manager",
+        "year": "2nd Year",
+        "branch": "Mechanical Engineering",
+        "email": "deputyevents1@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543215",
+        "image": "photos/Team Members/NUNNA KUMAR-deputy Event manager.JPG",
+        "bio": "Supporting event management and coordination activities.",
+        "responsibilities": ["Event support", "Logistics", "Vendor coordination"],
+        "active": true
+      },
+      {
+        "id": "deputy-event-manager-2",
+        "name": "Sumith Kumar",
+        "position": "Deputy Event Manager",
+        "year": "2nd Year",
+        "branch": "Mechanical Engineering",
+        "email": "deputyevents2@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543216",
+        "image": "photos/Team Members/SUMITH KUMAR -DEPUTY EVENT MANAGER.jpg",
+        "bio": "Supporting event management and coordination activities.",
+        "responsibilities": ["Event support", "Logistics", "Team coordination"],
+        "active": true
+      },
+      {
+        "id": "pr-officer-1",
+        "name": "Trilochan",
+        "position": "Public Relation Officer",
+        "year": "2nd Year",
+        "branch": "Mechanical Engineering",
+        "email": "pr@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543217",
+        "image": "photos/Team Members/TRILOCHAN -Public Relation Officer.jpg",
+        "bio": "Managing public relations and external communications.",
+        "responsibilities": ["Public relations", "External communications", "Media coordination"],
+        "active": true
+      },
+      {
+        "id": "deputy-pr-officer-1",
+        "name": "Pavan",
+        "position": "Deputy Public Relation Officer",
+        "year": "2nd Year",
+        "branch": "Mechanical Engineering",
+        "email": "deputypr@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543218",
+        "image": "photos/Team Members/Pavan-Deputy Public realtion officer.jpg",
+        "bio": "Supporting public relations and communication activities.",
+        "responsibilities": ["Social media", "Content creation", "Communication support"],
+        "active": true
+      }
+    ],
+    "technical_team": [
+      {
+        "id": "web-dev-head-1",
+        "name": "Mastan",
+        "position": "Web Development Head",
+        "year": "3rd Year",
+        "branch": "Mechanical Engineering",
+        "email": "webdev@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543219",
+        "image": "photos/Team Members/Mastan-Web Devlopment Head.jpg",
+        "bio": "Leading web development and technical infrastructure for MESA.",
+        "responsibilities": ["Web development", "Technical infrastructure", "Digital solutions"],
+        "active": true
+      },
+      {
+        "id": "web-dev-member-1",
+        "name": "Sangamesh",
+        "position": "Web Development Member",
+        "year": "3rd Year",
+        "branch": "Mechanical Engineering",
+        "email": "webdevmember@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543220",
+        "image": "photos/Team Members/SANGAMESH-General Secretary.jpg",
+        "bio": "Supporting web development and technical activities.",
+        "responsibilities": ["Web development support", "Technical assistance", "Digital content"],
+        "active": true
+      },
+      {
+        "id": "media-design-head-1",
+        "name": "Madhu Charan Chary",
+        "position": "Media and Design Head",
+        "year": "3rd Year",
+        "branch": "Mechanical Engineering",
+        "email": "media@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543221",
+        "image": "photos/Team Members/MADHU CHARAN CHARY-Media and Design Head.jpeg",
+        "bio": "Leading media and design activities for MESA events and communications.",
+        "responsibilities": ["Media production", "Design coordination", "Visual content"],
+        "active": true
+      },
+      {
+        "id": "media-member-1",
+        "name": "Geethesh",
+        "position": "Media Team Member",
+        "year": "2nd Year",
+        "branch": "Mechanical Engineering",
+        "email": "mediamember1@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543222",
+        "image": "photos/Team Members/GEETHESH-Media Team Member.jpg",
+        "bio": "Supporting media and design activities for MESA.",
+        "responsibilities": ["Media support", "Content creation", "Design assistance"],
+        "active": true
+      },
+      {
+        "id": "media-member-2",
+        "name": "Ganajit Sarkar",
+        "position": "Media Team Member",
+        "year": "2nd Year",
+        "branch": "Mechanical Engineering",
+        "email": "mediamember2@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543223",
+        "image": "photos/Team Members/Ganajit Sarkar-Media Team Member.jpg",
+        "bio": "Supporting media and design activities for MESA.",
+        "responsibilities": ["Media support", "Content creation", "Design assistance"],
+        "active": true
+      }
+    ],
+    "female_representatives": [
+      {
+        "id": "female-rep-1",
+        "name": "M Dharani",
+        "position": "Female Representative",
+        "year": "3rd Year",
+        "branch": "Mechanical Engineering",
+        "email": "femrep1@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543224",
+        "image": "photos/Team Members/M Dharani-Female Representatives.jpg",
+        "bio": "Representing female students in MESA activities and promoting inclusivity.",
+        "responsibilities": ["Female student representation", "Inclusivity initiatives", "Student welfare"],
+        "active": true
+      },
+      {
+        "id": "female-rep-2",
+        "name": "Malothu Sri Harsha",
+        "position": "Female Representative",
+        "year": "2nd Year",
+        "branch": "Mechanical Engineering",
+        "email": "femrep2@mesa.iitpkd.ac.in",
+        "phone": "+91-9876543225",
+        "image": "photos/Team Members/MALOTHU SRI HARSHA-Female Representative.jpg",
+        "bio": "Representing female students in MESA activities and promoting inclusivity.",
+        "responsibilities": ["Female student representation", "Inclusivity initiatives", "Student welfare"],
+        "active": true
+      }
+    ]
+  },
+  "settings": {
+    "academicYear": "2024-25",
+    "lastUpdated": "2024-10-30",
+    "autoUpdateTeam": true,
+    "displayInactiveMembers": false
+  }
+}

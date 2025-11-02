@@ -1,0 +1,31 @@
+PLACEHOLDER IMAGES NEEDED:
+
+For the Recent Events section to display properly, please add these image files to the photos/ folder:
+
+1. workshop-event.jpg (400x250px recommended)
+2. tech-conference.jpg (400x250px recommended)  
+3. design-competition.jpg (400x250px recommended)
+
+If these local images are not available, the website will automatically fallback to Unsplash images from the internet.
+
+TROUBLESHOOTING IMAGE LOADING ISSUES:
+
+1. Internet Connection:
+   - Ensure you have an active internet connection
+   - Unsplash images require internet access
+
+2. Browser Security:
+   - Some browsers block external images when viewing local HTML files
+   - Try opening the file through a local server instead of directly
+
+3. Local Server Setup:
+   - Use Live Server extension in VS Code
+   - Or use Python: python -m http.server 8000
+   - Or use Node.js: npx serve .
+
+4. CORS Issues:
+   - External images may be blocked due to CORS policy
+   - Local server setup resolves this issue
+
+RECOMMENDED SOLUTION:
+Use a local development server (Live Server, Python, or Node.js) instead of opening HTML files directly in the browser.

@@ -1,0 +1,192 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "title": "Advanced Manufacturing Workshop",
+      "date": "2025-12-15",
+      "time": "9:00 AM - 5:00 PM",
+      "location": "Mechanical Engineering Lab",
+      "category": "workshop",
+      "icon": "fas fa-wrench",
+      "description": "Hands-on workshop covering modern manufacturing techniques including 3D printing, CNC machining, and quality control systems. Students will work with industry-standard equipment.",
+      "status": "upcoming",
+      "registrationLink": "#",
+      "image": "photos/events/manufacturing-workshop.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Future of Robotics Seminar",
+      "date": "2025-12-22",
+      "time": "2:00 PM - 4:00 PM",
+      "location": "Seminar Hall A",
+      "category": "seminar",
+      "icon": "fas fa-microphone",
+      "description": "Industry expert talk on the latest developments in robotics and automation, covering AI integration, autonomous systems, and future career opportunities.",
+      "status": "upcoming",
+      "registrationLink": "#",
+      "image": "photos/events/robotics-seminar.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Design Competition Finals",
+      "date": "2025-12-28",
+      "time": "10:00 AM - 6:00 PM",
+      "location": "Main Auditorium",
+      "category": "competition",
+      "icon": "fas fa-trophy",
+      "description": "Final presentation and judging of student design projects. Teams will present innovative solutions to real-world engineering challenges.",
+      "status": "upcoming",
+      "registrationLink": "#",
+      "image": "photos/events/design-competition.jpg"
+    },
+    {
+      "id": "4",
+      "title": "New Year Community Celebration",
+      "date": "2025-01-05",
+      "time": "6:00 PM - 9:00 PM",
+      "location": "Student Center",
+      "category": "community",
+      "icon": "fas fa-users",
+      "description": "Community celebration to welcome the new year with cultural performances, networking opportunities, and refreshments.",
+      "status": "upcoming",
+      "registrationLink": "#",
+      "image": "photos/events/community-celebration.jpg"
+    },
+    {
+      "id": "5",
+      "title": "Automotive Plant Visit",
+      "date": "2025-01-12",
+      "time": "8:00 AM - 6:00 PM",
+      "location": "Chennai Industrial Area",
+      "category": "industry",
+      "icon": "fas fa-industry",
+      "description": "Educational visit to a leading automotive manufacturing facility to observe modern production techniques and quality control processes.",
+      "status": "upcoming",
+      "registrationLink": "#",
+      "image": "photos/events/plant-visit.jpg"
+    },
+    {
+      "id": "6",
+      "title": "General Body Meeting",
+      "date": "2025-01-18",
+      "time": "4:00 PM - 6:00 PM",
+      "location": "Conference Room B",
+      "category": "meeting",
+      "icon": "fas fa-users",
+      "description": "Monthly general body meeting to discuss upcoming events, budget allocations, and association matters. All members are encouraged to attend.",
+      "status": "upcoming",
+      "registrationLink": "#",
+      "image": "photos/events/general-meeting.jpg"
+    },
+    {
+      "id": "7",
+      "title": "Physics Wallah Talk",
+      "date": "2025-04-11",
+      "time": "2:00 PM - 4:00 PM",
+      "location": "Main Auditorium",
+      "category": "seminar",
+      "icon": "fas fa-microphone",
+      "description": "Inspiring educational talk by Physics Wallah team on innovative learning methodologies and career guidance in engineering. Learn about modern approaches to education and career opportunities in the engineering field.",
+      "status": "upcoming",
+      "registrationLink": "#",
+      "image": "Photos/Seminar And Talks/Physicswallah_0 (3).jpg"
+    },
+    {
+      "id": "8",
+      "title": "Industry Visit: Automotive Manufacturing",
+      "date": "2025-01-05",
+      "time": "8:00 AM - 6:00 PM",
+      "location": "Mahindra Manufacturing Plant",
+      "category": "industry",
+      "icon": "fas fa-industry",
+      "description": "Educational visit to explore modern automotive manufacturing processes and quality control systems.",
+      "status": "upcoming",
+      "registrationLink": "#",
+      "image": "photos/events/industry-visit.jpg"
+    },
+    {
+      "id": "9",
+      "title": "Research Symposium 2025",
+      "date": "2025-01-12",
+      "time": "9:00 AM - 5:00 PM",
+      "location": "Main Auditorium",
+      "category": "seminar",
+      "icon": "fas fa-microphone",
+      "description": "Annual research symposium showcasing student and faculty research projects in mechanical engineering.",
+      "status": "upcoming",
+      "registrationLink": "#",
+      "image": "photos/events/research-symposium.jpg"
+    },
+    {
+      "id": "10",
+      "title": "CAD Workshop",
+      "date": "2025-11-05",
+      "time": "2:00 PM - 5:00 PM",
+      "location": "Computer Lab 1",
+      "category": "workshop",
+      "icon": "fas fa-wrench",
+      "description": "Hands-on workshop on advanced CAD modeling techniques using SolidWorks and AutoCAD.",
+      "status": "upcoming",
+      "registrationLink": "#",
+      "image": "photos/events/cad-workshop.jpg"
+    },
+    {
+      "id": "11",
+      "title": "Industry Expert Talk",
+      "date": "2025-11-12",
+      "time": "3:00 PM - 4:30 PM",
+      "location": "Seminar Hall B",
+      "category": "seminar",
+      "icon": "fas fa-microphone",
+      "description": "Expert talk on emerging trends in mechanical engineering and career opportunities in the industry.",
+      "status": "upcoming",
+      "registrationLink": "#",
+      "image": "photos/events/expert-talk.jpg"
+    },
+    {
+      "id": "12",
+      "title": "Team Building Event",
+      "date": "2025-11-20",
+      "time": "4:00 PM - 7:00 PM",
+      "location": "Student Recreation Center",
+      "category": "community",
+      "icon": "fas fa-users",
+      "description": "Fun team building activities and networking session for MESA members.",
+      "status": "upcoming",
+      "registrationLink": "#",
+      "image": "photos/events/team-building.jpg"
+    }
+  ],
+  "categories": {
+    "workshop": {
+      "name": "Workshop",
+      "color": "#10b981",
+      "icon": "fas fa-wrench"
+    },
+    "seminar": {
+      "name": "Seminar", 
+      "color": "#3b82f6",
+      "icon": "fas fa-microphone"
+    },
+    "competition": {
+      "name": "Competition",
+      "color": "#f59e0b",
+      "icon": "fas fa-trophy"
+    },
+    "community": {
+      "name": "Community",
+      "color": "#8b5cf6",
+      "icon": "fas fa-users"
+    },
+    "industry": {
+      "name": "Industry Visit",
+      "color": "#ef4444",
+      "icon": "fas fa-industry"
+    },
+    "meeting": {
+      "name": "Meeting",
+      "color": "#6b7280",
+      "icon": "fas fa-users"
+    }
+  }
+}

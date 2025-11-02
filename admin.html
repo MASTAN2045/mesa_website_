@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MESA Admin Panel - Content Management</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Admin Panel Styles */
+    .admin-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2rem;
+    }
+
+    /* Login Section */
+    .login-section {
+      max-width: 500px;
+      margin: 4rem auto;
+      padding: 3rem;
+      background: var(--bg-card);
+      border-radius: 1rem;
+      box-shadow: var(--shadow-medium);
+      text-align: center;
+    }
+
+    .login-header {
+      margin-bottom: 2rem;
+    }
+
+    .login-header h1 {
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .login-tabs {
+      display: flex;
+      margin-bottom: 2rem;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 1rem;
+      background: var(--bg-secondary);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn.active {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border-light);
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 1rem;
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-dark);
+    }
+
+    /* Admin Panel */
+    .admin-panel {
+      display: none;
+      background: var(--bg-card);
+      border-radius: 1rem;
+      box-shadow: var(--shadow-medium);
+      overflow: hidden;
+    }
+
+    .admin-header {
+      background: var(--color-primary);
+      color: white;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .admin-nav {
+      display: flex;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-btn {
+      padding: 1rem 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+
+    .nav-btn.active {
+      background: var(--bg-card);
+      border-bottom-color: var(--color-gold);
+    }
+
+    .admin-content {
+      padding: 2rem;
+    }
+
+    .admin-section {
+      display: none;
+    }
+
+    .admin-section.active {
+      display: block;
+    }
+
+    /* Event Management */
+    .events-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .btn-add {
+      background: var(--color-gold);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-add:hover {
+      background: var(--color-gold-dark);
+    }
+
+    .event-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-light);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .event-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .event-meta {
+      display: flex;
+      gap: 1rem;
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+    }
+
+    .event-category,
+    .event-status {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+
+    .event-category {
+      background: var(--color-gold-light);
+      color: var(--color-gold-dark);
+    }
+
+    .event-status.upcoming {
+      background: var(--color-info);
+      color: white;
+    }
+
+    .event-status.ongoing {
+      background: var(--color-success);
+      color: white;
+    }
+
+    .event-status.completed {
+      background: var(--color-text-secondary);
+      color: white;
+    }
+
+    .event-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-edit,
+    .btn-delete {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-edit {
+      background: var(--color-info);
+      color: white;
+    }
+
+    .btn-delete {
+      background: var(--color-error);
+      color: white;
+    }
+
+    /* Event Form */
+    .event-form-section {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    .event-form-container {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: var(--bg-card);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    .form-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .btn-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-text-secondary);
+    }
+
+    /* Join Requests */
+    .join-request-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-light);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .request-status {
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .request-status.pending {
+      background: var(--color-warning);
+      color: white;
+    }
+
+    .request-status.approved {
+      background: var(--color-success);
+      color: white;
+    }
+
+    .request-status.rejected {
+      background: var(--color-error);
+      color: white;
+    }
+
+    .btn-approve,
+    .btn-reject {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+    }
+
+    .btn-approve {
+      background: var(--color-success);
+      color: white;
+    }
+
+    .btn-reject {
+      background: var(--color-error);
+      color: white;
+    }
+
+    /* User Info */
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .role-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .role-badge.admin {
+      background: var(--color-error);
+      color: white;
+    }
+
+    .role-badge.member {
+      background: var(--color-info);
+      color: white;
+    }
+
+    /* Notifications */
+    .auth-notification,
+    .admin-notification {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+      color: white;
+      font-weight: 600;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      animation: slideInRight 0.3s ease-out;
+    }
+
+    .auth-notification.success,
+    .admin-notification.success {
+      background: var(--color-success);
+    }
+
+    .auth-notification.error,
+    .admin-notification.error {
+      background: var(--color-error);
+    }
+
+    .auth-notification.info,
+    .admin-notification.info {
+      background: var(--color-info);
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .admin-container {
+        padding: 1rem;
+      }
+
+      .login-section {
+        margin: 2rem auto;
+        padding: 2rem;
+      }
+
+      .admin-nav {
+        flex-direction: column;
+      }
+
+      .event-header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .event-actions {
+        align-self: flex-start;
+      }
+
+      .join-request-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <img src="photos/Logo.jpg" alt="MESA Logo" class="logo-image">
+          <span class="logo-text">MESA</span>
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="calendar.html">Events</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="team.html">Team</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="admin-container">
+    <!-- Login Section -->
+    <div id="loginSection" class="login-section">
+      <div class="login-header">
+        <h1><i class="fas fa-shield-alt"></i> MESA Admin Panel</h1>
+        <p>Secure access for MESA administrators and members</p>
+      </div>
+
+      <div class="login-tabs">
+        <button class="tab-btn active" onclick="switchTab('login')">Admin/Member Login</button>
+        <button class="tab-btn" onclick="switchTab('join')">Join MESA</button>
+      </div>
+
+      <!-- Login Tab -->
+      <div id="loginTab" class="tab-content active">
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required placeholder="admin-mesa@iitpkd.ac.in or your@smail.iitpkd.ac.in">
+            <small>Use admin-mesa@iitpkd.ac.in for admin access or your @smail.iitpkd.ac.in email for member access</small>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" required placeholder="Enter your password">
+          </div>
+          <button type="submit" class="btn-primary">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </button>
+        </form>
+      </div>
+
+      <!-- Join Tab -->
+      <div id="joinTab" class="tab-content">
+        <form id="joinForm">
+          <div class="form-group">
+            <label for="joinName">Full Name</label>
+            <input type="text" id="joinName" required placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label for="joinEmail">IIT Palakkad Email</label>
+            <input type="email" id="joinEmail" required placeholder="your.name@smail.iitpkd.ac.in">
+            <small>Only @smail.iitpkd.ac.in emails are accepted</small>
+          </div>
+          <div class="form-group">
+            <label for="rollNumber">Roll Number</label>
+            <input type="text" id="rollNumber" required placeholder="Your roll number">
+          </div>
+          <button type="submit" class="btn-primary">
+            <i class="fas fa-user-plus"></i> Request to Join MESA
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel">
+      <div class="admin-header">
+        <div>
+          <h1><i class="fas fa-tachometer-alt"></i> MESA Dashboard</h1>
+          <p>Content Management System</p>
+        </div>
+        <div class="admin-header-actions">
+          <div id="userInfo"></div>
+          <button id="logoutBtn" class="btn-primary" style="margin-left: 1rem;">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+      </div>
+
+      <div class="admin-nav">
+        <button class="nav-btn active" onclick="switchSection('events')">
+          <i class="fas fa-calendar-alt"></i> Events Management
+        </button>
+        <button class="nav-btn admin-only" onclick="switchSection('members')">
+          <i class="fas fa-users"></i> Member Requests
+        </button>
+        <button class="nav-btn admin-only" onclick="switchSection('settings')">
+          <i class="fas fa-cog"></i> Settings
+        </button>
+      </div>
+
+      <div class="admin-content">
+        <!-- Events Management Section -->
+        <div id="eventsSection" class="admin-section active">
+          <div class="events-header">
+            <h2><i class="fas fa-calendar-plus"></i> Events Management</h2>
+            <button id="addEventBtn" class="btn-add">
+              <i class="fas fa-plus"></i> Add New Event
+            </button>
+          </div>
+          <div id="eventsContainer">
+            <!-- Events will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Member Requests Section (Admin Only) -->
+        <div id="membersSection" class="admin-section admin-only">
+          <h2><i class="fas fa-user-check"></i> Member Join Requests</h2>
+          <div id="joinRequestsContainer">
+            <!-- Join requests will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Settings Section (Admin Only) -->
+        <div id="settingsSection" class="admin-section admin-only">
+          <h2><i class="fas fa-cog"></i> System Settings</h2>
+          
+          <div class="firebase-setup-info">
+            <h4><i class="fas fa-fire"></i> Firebase Setup Required</h4>
+            <p>To activate the admin system, you need to configure Firebase:</p>
+            <ol style="margin: 1rem 0; padding-left: 2rem;">
+              <li>Go to <a href="https://firebase.google.com" target="_blank" style="color: white; text-decoration: underline;">Firebase Console</a></li>
+              <li>Create a new project named "mesa-website"</li>
+              <li>Enable Authentication (Email/Password)</li>
+              <li>Enable Firestore Database</li>
+              <li>Copy your config and update <code>js/firebase-config.js</code></li>
+            </ol>
+          </div>
+
+          <div class="settings-info">
+            <div class="info-card">
+              <h3>Authentication Settings</h3>
+              <p><strong>Allowed Domains:</strong> @smail.iitpkd.ac.in</p>
+              <p><strong>Admin Email:</strong> admin-mesa@iitpkd.ac.in</p>
+              <p><strong>Backend:</strong> Firebase Authentication</p>
+              <p><strong>Database:</strong> Firestore</p>
+            </div>
+            <div class="info-card">
+              <h3>System Information</h3>
+              <p><strong>Version:</strong> MESA Admin Panel v2.0 (Firebase)</p>
+              <p><strong>Last Updated:</strong> November 2025</p>
+              <p><strong>Status:</strong> <span style="color: var(--color-warning);">Setup Required</span></p>
+              <p><strong>Features:</strong> Real-time updates, Secure auth, Cloud storage</p>
+            </div>
+            <div class="info-card">
+              <h3>Firebase Collections</h3>
+              <p><strong>Events:</strong> <code>events</code></p>
+              <p><strong>Members:</strong> <code>members</code></p>
+              <p><strong>Join Requests:</strong> <code>joinRequests</code></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event Form Modal -->
+    <div id="eventFormSection" class="event-form-section">
+      <div class="event-form-container">
+        <div class="form-header">
+          <h2 id="formTitle">Add New Event</h2>
+          <button id="cancelEvent" class="btn-close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <form id="eventForm">
+          <input type="hidden" id="eventId">
+          
+          <div class="form-group">
+            <label for="eventTitle">Event Title</label>
+            <input type="text" id="eventTitle" required placeholder="Enter event title">
+          </div>
+          
+          <div class="form-group">
+            <label for="eventDate">Date</label>
+            <input type="date" id="eventDate" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="eventTime">Time</label>
+            <input type="text" id="eventTime" required placeholder="e.g., 2:00 PM - 4:00 PM">
+          </div>
+          
+          <div class="form-group">
+            <label for="eventLocation">Location</label>
+            <input type="text" id="eventLocation" required placeholder="Event venue">
+          </div>
+          
+          <div class="form-group">
+            <label for="eventCategory">Category</label>
+            <select id="eventCategory" required>
+              <option value="">Select category</option>
+              <option value="workshop">Workshop</option>
+              <option value="seminar">Seminar</option>
+              <option value="competition">Competition</option>
+              <option value="meeting">Meeting</option>
+              <option value="social">Social Event</option>
+              <option value="academic">Academic</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="eventStatus">Status</label>
+            <select id="eventStatus" required>
+              <option value="upcoming">Upcoming</option>
+              <option value="ongoing">Ongoing</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="eventDescription">Description</label>
+            <textarea id="eventDescription" rows="4" required placeholder="Event description"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="eventRegistrationLink">Registration Link (Optional)</label>
+            <input type="url" id="eventRegistrationLink" placeholder="https://...">
+          </div>
+          
+          <button type="submit" class="btn-primary">
+            <i class="fas fa-save"></i> Save Event
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase Scripts -->
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/firebase-auth.js"></script>
+  <script type="module" src="js/firebase-events.js"></script>
+  
+  <!-- Additional Styles for Firebase -->
+  <style>
+    .auth-loader {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: var(--shadow-medium);
+      z-index: 3000;
+      display: none;
+    }
+
+    .firebase-notification,
+    .firebase-events-notification {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+      color: white;
+      font-weight: 600;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      animation: slideInRight 0.3s ease-out;
+      max-width: 400px;
+    }
+
+    .firebase-notification.success,
+    .firebase-events-notification.success {
+      background: var(--color-success);
+    }
+
+    .firebase-notification.error,
+    .firebase-events-notification.error {
+      background: var(--color-error);
+    }
+
+    .firebase-notification.info,
+    .firebase-events-notification.info {
+      background: var(--color-info);
+    }
+
+    .close-notification {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 0.25rem;
+    }
+
+    .verified {
+      color: var(--color-success);
+    }
+
+    .unverified {
+      color: var(--color-warning);
+    }
+
+    .firebase-setup-info {
+      background: var(--color-info);
+      color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .firebase-setup-info h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .firebase-setup-info code {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      font-family: monospace;
+    }
+  </style>
+  <script>
+    // Tab switching for login/join
+    function switchTab(tab) {
+      const loginTab = document.getElementById('loginTab');
+      const joinTab = document.getElementById('joinTab');
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      
+      tabBtns.forEach(btn => btn.classList.remove('active'));
+      
+      if (tab === 'login') {
+        loginTab.classList.add('active');
+        joinTab.classList.remove('active');
+        tabBtns[0].classList.add('active');
+      } else {
+        joinTab.classList.add('active');
+        loginTab.classList.remove('active');
+        tabBtns[1].classList.add('active');
+      }
+    }
+    
+    // Section switching for admin panel
+    function switchSection(section) {
+      const sections = document.querySelectorAll('.admin-section');
+      const navBtns = document.querySelectorAll('.nav-btn');
+      
+      sections.forEach(s => s.classList.remove('active'));
+      navBtns.forEach(btn => btn.classList.remove('active'));
+      
+      document.getElementById(section + 'Section').classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
+      border-radius: 0.25rem;
+      font-size: 1rem;
+    }
+    .btn-admin {
+      background: var(--color-gold);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn-admin:hover {
+      background: var(--color-gold-dark);
+    }
+    .success-message {
+      background: #10b981;
+      color: white;
+      padding: 1rem;
+      border-radius: 0.25rem;
+      margin-top: 1rem;
+      display: none;
+    }
+    .error-message {
+      background: #ef4444;
+      color: white;
+      padding: 1rem;
+      border-radius: 0.25rem;
+      margin-top: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <img src="photos/Logo.jpg" alt="MESA Logo" class="logo-image">
+          <span class="logo-text">MESA</span>
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="calendar.html">Calendar</a>
+          <a href="team.html">Team</a>
+          <li><a href="gallery.html">Gallery</a></li>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Admin Panel -->
+  <div class="admin-panel">
+    <h1><i class="fas fa-cog"></i> MESA Admin Panel</h1>
+    <p>Manage events, photos, and team members dynamically</p>
+
+    <!-- Add Event Section -->
+    <div class="admin-section">
+      <h2><i class="fas fa-calendar-plus"></i> Add New Event</h2>
+      <form class="admin-form" id="eventForm">
+        <div class="form-group">
+          <label for="eventTitle">Event Title</label>
+          <input type="text" id="eventTitle" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="eventDate">Event Date</label>
+          <input type="date" id="eventDate" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="eventTime">Event Time</label>
+          <input type="text" id="eventTime" name="time" placeholder="e.g., 9:00 AM - 5:00 PM" required>
+        </div>
+        <div class="form-group">
+          <label for="eventLocation">Location</label>
+          <input type="text" id="eventLocation" name="location" required>
+        </div>
+        <div class="form-group">
+          <label for="eventCategory">Category</label>
+          <select id="eventCategory" name="category" required>
+            <option value="workshop">Workshop</option>
+            <option value="seminar">Seminar</option>
+            <option value="competition">Competition</option>
+            <option value="community">Community</option>
+            <option value="industry">Industry Visit</option>
+            <option value="meeting">Meeting</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="eventDescription">Description</label>
+          <textarea id="eventDescription" name="description" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="eventImage">Image Path</label>
+          <input type="text" id="eventImage" name="image" placeholder="photos/events/event-name.jpg">
+        </div>
+        <button type="submit" class="btn-admin">
+          <i class="fas fa-plus"></i> Add Event
+        </button>
+        <div class="success-message" id="eventSuccess">Event added successfully!</div>
+        <div class="error-message" id="eventError">Error adding event. Please try again.</div>
+      </form>
+    </div>
+
+    <!-- Add Photo Section -->
+    <div class="admin-section">
+      <h2><i class="fas fa-image"></i> Add New Photo</h2>
+      <form class="admin-form" id="photoForm">
+        <div class="form-group">
+          <label for="photoFilename">Photo Filename</label>
+          <input type="text" id="photoFilename" name="filename" placeholder="photo-name.jpg" required>
+        </div>
+        <div class="form-group">
+          <label for="photoCategory">Category</label>
+          <select id="photoCategory" name="category" required>
+            <option value="team">Team Photos</option>
+            <option value="events">Event Photos</option>
+            <option value="gallery">General Gallery</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="photoSubcategory">Subcategory</label>
+          <input type="text" id="photoSubcategory" name="subcategory" placeholder="e.g., workshop, group, individual">
+        </div>
+        <div class="form-group">
+          <label for="photoTitle">Photo Title</label>
+          <input type="text" id="photoTitle" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="photoDescription">Description</label>
+          <textarea id="photoDescription" name="description" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="photoDate">Photo Date</label>
+          <input type="date" id="photoDate" name="date" required>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="photoFeatured" name="featured"> Featured Photo
+          </label>
+        </div>
+        <button type="submit" class="btn-admin">
+          <i class="fas fa-plus"></i> Add Photo
+        </button>
+        <div class="success-message" id="photoSuccess">Photo added successfully!</div>
+        <div class="error-message" id="photoError">Error adding photo. Please try again.</div>
+      </form>
+    </div>
+
+    <!-- Add Team Member Section -->
+    <div class="admin-section">
+      <h2><i class="fas fa-user-plus"></i> Add Team Member</h2>
+      <form class="admin-form" id="teamForm">
+        <div class="form-group">
+          <label for="memberName">Name</label>
+          <input type="text" id="memberName" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="memberPosition">Position</label>
+          <input type="text" id="memberPosition" name="position" required>
+        </div>
+        <div class="form-group">
+          <label for="memberCategory">Category</label>
+          <select id="memberCategory" name="category" required>
+            <option value="faculty">Faculty</option>
+            <option value="office_bearers">Office Bearers</option>
+            <option value="coordinators">Coordinators</option>
+            <option value="representatives">Representatives</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="memberYear">Year (for students)</label>
+          <input type="text" id="memberYear" name="year" placeholder="e.g., 3rd Year">
+        </div>
+        <div class="form-group">
+          <label for="memberBranch">Branch</label>
+          <input type="text" id="memberBranch" name="branch" value="Mechanical Engineering">
+        </div>
+        <div class="form-group">
+          <label for="memberEmail">Email</label>
+          <input type="email" id="memberEmail" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="memberPhone">Phone</label>
+          <input type="tel" id="memberPhone" name="phone">
+        </div>
+        <div class="form-group">
+          <label for="memberImage">Image Path</label>
+          <input type="text" id="memberImage" name="image" placeholder="photos/team/member-name.jpg" required>
+        </div>
+        <div class="form-group">
+          <label for="memberBio">Bio</label>
+          <textarea id="memberBio" name="bio" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn-admin">
+          <i class="fas fa-plus"></i> Add Team Member
+        </button>
+        <div class="success-message" id="teamSuccess">Team member added successfully!</div>
+        <div class="error-message" id="teamError">Error adding team member. Please try again.</div>
+      </form>
+    </div>
+
+    <!-- Instructions -->
+    <div class="admin-section">
+      <h2><i class="fas fa-info-circle"></i> Instructions</h2>
+      <div style="line-height: 1.6;">
+        <h3>How to Use This Admin Panel:</h3>
+        <ol>
+          <li><strong>Adding Events:</strong> Fill out the event form and click "Add Event". The event will automatically appear on the events page and calendar.</li>
+          <li><strong>Adding Photos:</strong> Upload photos to the appropriate folder first, then use this form to add them to the system.</li>
+          <li><strong>Adding Team Members:</strong> Add new team members who will automatically appear on the team page.</li>
+          <li><strong>File Organization:</strong>
+            <ul>
+              <li>Event photos: <code>photos/events/</code></li>
+              <li>Team photos: <code>photos/team/</code></li>
+              <li>General photos: <code>photos/gallery/</code></li>
+            </ul>
+          </li>
+        </ol>
+        <h3>Recommended Workflow:</h3>
+        <ol>
+          <li>Upload image files to appropriate folders</li>
+          <li>Use this admin panel to add metadata</li>
+          <li>Changes will be reflected immediately on the website</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/content-manager.js"></script>
+  <script>
+    // Admin panel functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Event form handler
+      document.getElementById('eventForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(e.target);
+        const eventData = {
+          title: formData.get('title'),
+          date: formData.get('date'),
+          time: formData.get('time'),
+          location: formData.get('location'),
+          category: formData.get('category'),
+          description: formData.get('description'),
+          image: formData.get('image') || 'photos/default-event.jpg',
+          status: 'upcoming',
+          registrationLink: '#',
+          icon: getCategoryIcon(formData.get('category'))
+        };
+
+        try {
+          if (window.mesaContentManager) {
+            await window.mesaContentManager.addEvent(eventData);
+            showMessage('eventSuccess');
+            e.target.reset();
+          }
+        } catch (error) {
+          showMessage('eventError');
+        }
+      });
+
+      // Photo form handler
+      document.getElementById('photoForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(e.target);
+        const photoData = {
+          filename: formData.get('filename'),
+          category: formData.get('category'),
+          subcategory: formData.get('subcategory'),
+          title: formData.get('title'),
+          description: formData.get('description'),
+          date: formData.get('date'),
+          featured: formData.get('featured') === 'on',
+          tags: [formData.get('category'), formData.get('subcategory')]
+        };
+
+        try {
+          if (window.mesaContentManager) {
+            await window.mesaContentManager.addPhoto(photoData);
+            showMessage('photoSuccess');
+            e.target.reset();
+          }
+        } catch (error) {
+          showMessage('photoError');
+        }
+      });
+
+      // Team form handler
+      document.getElementById('teamForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(e.target);
+        const memberData = {
+          name: formData.get('name'),
+          position: formData.get('position'),
+          year: formData.get('year'),
+          branch: formData.get('branch'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          image: formData.get('image'),
+          bio: formData.get('bio'),
+          active: true
+        };
+
+        try {
+          if (window.mesaContentManager) {
+            await window.mesaContentManager.addTeamMember(memberData, formData.get('category'));
+            showMessage('teamSuccess');
+            e.target.reset();
+          }
+        } catch (error) {
+          showMessage('teamError');
+        }
+      });
+    });
+
+    function getCategoryIcon(category) {
+      const icons = {
+        workshop: 'fas fa-wrench',
+        seminar: 'fas fa-microphone',
+        competition: 'fas fa-trophy',
+        community: 'fas fa-users',
+        industry: 'fas fa-industry',
+        meeting: 'fas fa-users'
+      };
+      return icons[category] || 'fas fa-calendar';
+    }
+
+    function showMessage(elementId) {
+      const element = document.getElementById(elementId);
+      element.style.display = 'block';
+      setTimeout(() => {
+        element.style.display = 'none';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar - MESA IIT Palakkad</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <img src="photos/Logo.jpg" alt="MESA Logo" class="logo-image">
+          <span>MESA IIT Palakkad</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="calendar.html" class="active">Calendar</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Resources</a>
+            <ul class="dropdown-menu">
+              <li><a href="https://records.iitpkd.ac.in/" target="_blank">Fedena</a></li>
+              <li><a href="https://lms.iitpkd.ac.in/" target="_blank">Moodle</a></li>
+              <li><a href="https://lib.iitpkd.ac.in/" target="_blank">Central Library</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>MESA Calendar</h1>
+      <p>Discover our upcoming events, workshops, and activities</p>
+    </div>
+  </section>
+
+  <!-- MESA Calendar Section -->
+  <section class="mesa-calendar-section">
+    <div class="container">
+      <div class="mesa-calendar-container">
+        <!-- Calendar Header with Navigation -->
+        <div class="mesa-calendar-header">
+          <button class="mesa-nav-btn" id="prevMonth">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <h2 class="mesa-month-title" id="currentMonth">November 2024</h2>
+          <button class="mesa-nav-btn" id="nextMonth">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Events List -->
+        <div class="mesa-events-list" id="eventsList">
+          <!-- Events will be dynamically loaded here -->
+        </div>
+
+        <!-- No Events Message -->
+        <div class="mesa-no-events" id="noEventsMessage" style="display: none;">
+          <i class="fas fa-calendar-times"></i>
+          <p>No events scheduled for this month</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- footer section-->
+  <footer class="footer footer--gold">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="photos/Logo.jpg" alt="MESA Logo" class="footer-logo-image">
+            <span>MESA IIT Palakkad</span>
+          </div>
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/iitpkdmesa/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+            <a href="http://instagram.com/mesa_iitpkd/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/mesa-iit-palakkad" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+           <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" >About us</a></li>
+            <li><a href="calendar.html">Calendar</a>
+            <li><a href="team.html">Team</a>
+            <li><a href="gallery.html">Gallery</a>    
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.google.com/?q=IIT+Palakkad,+Kanjikode,+Kerala+678623" target="_blank" style="color: inherit; text-decoration: none;">IIT Palakkad, Kanjikode, Kerala – 678623</a></p>
+          <p><i class="fas fa-envelope"></i> mesa@iitpkd.ac.in</p>
+          <p><i class="fas fa-phone"></i> +91 123 456 7890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 MESA IIT Palakkad. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Photo Lightbox Modal -->
+  <div class="photo-lightbox" id="photoLightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose">&times;</button>
+      <img src="" alt="" id="lightboxImage">
+    </div>
+  </div>
+
+  <script src="js/content-manager.js" defer></script>
+  <script src="js/script.js"></script>
+  <script src="js/mesa-calendar.js"></script>
+  <script src="js/calendar-animations.js"></script>
+</body>
+</html>

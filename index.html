@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MESA IIT Palakkad - Mechanical Engineering Students' Association</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <!-- Intro Splash -->
+  <div id="mesa-splash" aria-hidden="true">
+    <div class="splash-center">
+      <div class="splash-logo-container">
+        <img src="photos/Logo.jpg" alt="MESA Logo" class="splash-logo-image">
+        <div class="splash-text-group">
+          <div class="splash-logo" role="img" aria-label="MESA">
+            <span class="splash-letter">M</span>
+            <span class="splash-letter">E</span>
+            <span class="splash-letter">S</span>
+            <span class="splash-letter">A</span>
+          </div>
+          <div class="splash-institute">IIT PALAKKAD</div>
+        </div>
+        <div class="splash-progress">
+          <div class="splash-progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Navigation -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <img src="photos/Logo.jpg" alt="MESA Logo" class="logo-image">
+          <span>MESA IIT Palakkad</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Resources</a>
+            <ul class="dropdown-menu">
+              <li><a href="https://records.iitpkd.ac.in/" target="_blank">Fedena</a></li>
+              <li><a href="https://lms.iitpkd.ac.in/" target="_blank">Moodle</a></li>
+              <li><a href="https://lib.iitpkd.ac.in/" target="_blank">Central Library</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Photo Slider Section -->
+  <section class="photo-slider">
+    <div class="slider-container">
+      <div class="slide active">
+        <img src="Photos/About_0.jpg" alt="MESA Activities">
+        <div class="slide-content">
+          <h1 class="slide-title">Mechanical Engineering Students' Association</h1>
+          <p class="slide-subtitle">Fostering innovation, collaboration, and excellence in Mechanical Engineering at IIT Palakkad</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="Photos/Seminar And Talks/Home_2.jpg" alt="MESA Seminars">
+        <div class="slide-content">
+          <h1 class="slide-title">Seminars & Learning</h1>
+          <p class="slide-subtitle">Engaging seminars and educational sessions to enhance technical knowledge</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="Photos/Events/Home_5.jpg" alt="MESA Events">
+        <div class="slide-content">
+          <h1 class="slide-title">Events</h1>
+          <p class="slide-subtitle">Organizing competitions, seminars, and technical conferences</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="Photos/Events/Hackthon_1.jpg" alt="MESA Hackathon">
+        <div class="slide-content">
+          <h1 class="slide-title">Innovation Hub</h1>
+          <p class="slide-subtitle">Hackathons and design challenges to foster creativity</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="Photos/Industry trip/Ind_Trip_1.jpg" alt="Industrial Visit">
+        <div class="slide-content">
+          <h1 class="slide-title">Industry Exposure</h1>
+          <p class="slide-subtitle">Educational visits to leading manufacturing facilities</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="Photos/Home_1.jpg" alt="MESA Community">
+        <div class="slide-content">
+          <h1 class="slide-title">Building Community</h1>
+          <p class="slide-subtitle">Creating strong networks among mechanical engineering students and faculty</p>
+        </div>
+      </div>
+      
+      <!-- Navigation arrows -->
+      <button class="slider-btn prev-btn">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="slider-btn next-btn">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      
+      <!-- Slide indicators -->
+      <div class="slider-indicators">
+        <span class="indicator active"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Event Banner -->
+  <section class="event-banner">
+    <div class="banner-container">
+      <div class="banner-content" id="eventBanner">
+        <i class="fas fa-calendar-alt banner-icon"></i>
+        <span class="banner-text">Loading upcoming event...</span>
+        <i class="fas fa-arrow-right banner-arrow"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">What We Do</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Innovation</h3>
+          <p>Promoting creative thinking and innovative solutions in mechanical engineering</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Collaboration</h3>
+          <p>Building strong networks and fostering teamwork among students</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h3>Excellence</h3>
+          <p>Striving for academic and professional excellence in all endeavors</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Events -->
+  <section class="recent-events">
+    <div class="container">
+      <h2 class="section-title">Recent Events</h2>
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-image">
+            <img src="Photos/Seminar And Talks/IAC_2.JPG" alt="Ansys Talk" loading="eager">
+          </div>
+          <div class="event-content">
+            <h3>Ansys Talk</h3>
+            <p>Accelerating Product Design using Ansys Technologies</p>
+            <span class="event-date">Sep 19, 2025</span>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-image">
+            <img src="Photos/Events/Home_5.jpg" alt="Conference" loading="eager">
+          </div>
+          <div class="event-content">
+            <h3>Farewell </h3>
+            <p>B.Tech-Batch 2021-2025</p>
+            <p>M.Tech-Batch 2023-2025</p>
+            <span class="event-date">May 12, 2025</span>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-image">
+            <img src="Photos/Seminar And Talks/Physicswallah_0 (3).jpg" alt="Physicswallah" loading="eager">
+          </div>
+          <div class="event-content">
+            <h3>Physics Wallah Talk</h3>
+            <p>Inspiring educational talk by Physics Wallah team on innovative learning methodologies and career guidance in engineering</p>
+            <span class="event-date">April 11, 2025</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="gallery.html" class="btn btn-outline">View All Events</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">150+</div>
+          <div class="stat-label">Active Members</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">25+</div>
+          <div class="stat-label">Faculty</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Industry Partners</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Footer -->
+  <footer class="footer footer--gold">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="photos/Logo.jpg" alt="MESA Logo" class="footer-logo-image">
+            <span>MESA IIT Palakkad</span>
+          </div>
+          <p>Fostering innovation, collaboration, and excellence in Mechanical Engineering.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/iitpkdmesa/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/mesa-iit-palakkad" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="http://instagram.com/mesa_iitpkd/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" >About us</a></li>
+            <li><a href="calendar.html">Calendar</a>
+            <li><a href="team.html">Team</a>
+            <li><a href="gallery.html">Gallery</a>  
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.google.com/?q=IIT+Palakkad,+Kanjikode,+Kerala+678623" target="_blank" style="color: inherit; text-decoration: none;">IIT Palakkad, Kanjikode, Kerala – 678623</a></p>
+          <p><i class="fas fa-envelope"></i> mesa@iitpkd.ac.in</p>
+          <p><i class="fas fa-phone"></i> +91 123 456 7890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 MESA IIT Palakkad. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/content-manager.js" defer></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>
