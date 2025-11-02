@@ -460,7 +460,7 @@
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-logo">
-          <img src="photos/Logo.jpg" alt="MESA Logo" class="logo-image">
+          <img src="Photos/Logo.jpg" alt="MESA Logo" class="logo-image">
           <span class="logo-text">MESA</span>
         </div>
         <div class="nav-links">
@@ -853,7 +853,7 @@
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-logo">
-          <img src="photos/Logo.jpg" alt="MESA Logo" class="logo-image">
+          <img src="Photos/Logo.jpg" alt="MESA Logo" class="logo-image">
           <span class="logo-text">MESA</span>
         </div>
         <div class="nav-links">
@@ -909,7 +909,7 @@
         </div>
         <div class="form-group">
           <label for="eventImage">Image Path</label>
-          <input type="text" id="eventImage" name="image" placeholder="photos/events/event-name.jpg">
+          <input type="text" id="eventImage" name="image" placeholder="Photos/events/event-name.jpg">
         </div>
         <button type="submit" class="btn-admin">
           <i class="fas fa-plus"></i> Add Event
@@ -1003,7 +1003,7 @@
         </div>
         <div class="form-group">
           <label for="memberImage">Image Path</label>
-          <input type="text" id="memberImage" name="image" placeholder="photos/team/member-name.jpg" required>
+          <input type="text" id="memberImage" name="image" placeholder="Photos/team/member-name.jpg" required>
         </div>
         <div class="form-group">
           <label for="memberBio">Bio</label>
@@ -1028,9 +1028,9 @@
           <li><strong>Adding Team Members:</strong> Add new team members who will automatically appear on the team page.</li>
           <li><strong>File Organization:</strong>
             <ul>
-              <li>Event photos: <code>photos/events/</code></li>
-              <li>Team photos: <code>photos/team/</code></li>
-              <li>General photos: <code>photos/gallery/</code></li>
+              <li>Event photos: <code>Photos/events/</code></li>
+              <li>Team photos: <code>Photos/team/</code></li>
+              <li>General photos: <code>Photos/gallery/</code></li>
             </ul>
           </li>
         </ol>
@@ -1060,7 +1060,7 @@
           location: formData.get('location'),
           category: formData.get('category'),
           description: formData.get('description'),
-          image: formData.get('image') || 'photos/default-event.jpg',
+          image: formData.get('image') || 'Photos/default-event.jpg',
           status: 'upcoming',
           registrationLink: '#',
           icon: getCategoryIcon(formData.get('category'))
