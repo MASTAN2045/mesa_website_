@@ -938,9 +938,34 @@ body {
 /* Team Grid with Hover Overlay */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   gap: clamp(1.5rem, 4vw, 2rem);
   margin-top: clamp(2rem, 5vw, 2.5rem);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Core Team - 3 members, force single line */
+.core-team .team-grid {
+  max-width: 1000px;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+}
+
+/* Event Coordinators - adjust based on member count */
+.event-coordinators .team-grid {
+  max-width: 1200px;
+  gap: clamp(1.2rem, 3.5vw, 2rem);
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+/* Technical Team - adjust based on member count */
+.technical-team .team-grid {
+  max-width: 1200px;
+  gap: clamp(1.3rem, 3.8vw, 2rem);
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
 }
 .team-photo {
   position: relative;
@@ -961,7 +986,7 @@ body {
 
 .team-photo img { 
   width: 100%; 
-  height: clamp(16rem, 40vw, 20rem);
+  height: clamp(14rem, 30vw, 16rem);
   object-fit: cover;
   border-radius: 0.9375rem;
 }
@@ -1211,8 +1236,24 @@ body {
   }
   
   .team-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 35px;
+  }
+  
+  .core-team .team-grid {
+    max-width: 900px;
+    gap: 35px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .event-coordinators .team-grid {
+    max-width: 1100px;
+    gap: 30px;
+  }
+  
+  .technical-team .team-grid {
+    max-width: 1200px;
+    gap: 32px;
   }
   
   .representatives-grid {
@@ -1233,8 +1274,24 @@ body {
   }
   
   .team-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 35px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+  }
+  
+  .core-team .team-grid {
+    max-width: 800px;
+    gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .event-coordinators .team-grid {
+    max-width: 1000px;
+    gap: 25px;
+  }
+  
+  .technical-team .team-grid {
+    max-width: 1100px;
+    gap: 28px;
   }
   
   .representatives-grid {
@@ -1253,6 +1310,12 @@ body {
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+  }
+  
+  .core-team .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 700px;
   }
   
   .team-photo {
