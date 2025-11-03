@@ -12,13 +12,32 @@ img {
   display: block;
 }
 
-/* Event card images */
+/* Event card images - Fixed consistent sizing */
+.event-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 0.5rem 0.5rem 0 0;
+  position: relative;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+}
+
+.event-image img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.event-image img.loaded {
+  opacity: 1;
+}
+
 .event-image img {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
   object-position: center;
-  border-radius: 0.5rem 0.5rem 0 0;
+  transition: transform 0.3s ease;
 }
 
 
@@ -567,14 +586,14 @@ body {
   background: var(--bg-card);
   border-radius: 0.9375rem;
   overflow: hidden;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-light);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 0.125rem solid var(--border-light);
-  margin: 2rem auto;
   position: relative;
-  height: 26rem;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+  height: 400px;
 }
 
 .event-card::after {
@@ -595,8 +614,22 @@ body {
 
 .event-card:hover {
   transform: translateY(-0.5rem);
-  box-shadow: var(--shadow-strong);
+  box-shadow: 0 20px 40px rgba(30, 58, 138, 0.15);
   border-color: var(--color-gold);
+}
+
+/* Improved event date styling */
+.event-date {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-soft));
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: auto;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
 }
 
 .event-image {
@@ -612,7 +645,32 @@ body {
 }
 
 .event-card:hover .event-image img {
-  transform: scale(1.05);
+  transform: scale(1.08);
+}
+
+/* Event content area */
+.event-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.event-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.event-content p {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex-grow: 1;
 }
 
 .event-content {
@@ -1241,12 +1299,13 @@ body {
   }
   
   .event-card {
-    height: 24rem;
+    height: auto;
+    min-height: 380px;
     margin: 1rem auto;
   }
   
   .event-image {
-    height: 10rem;
+    height: 200px;
   }
   
   /* Representative cards use standard team-photo responsive styling */
@@ -1317,12 +1376,13 @@ body {
   }
   
   .event-card {
-    height: 22rem;
+    height: auto;
+    min-height: 360px;
     margin: 0.75rem auto;
   }
   
   .event-image {
-    height: 9rem;
+    height: 180px;
   }
   
   .team-photo {
@@ -3177,14 +3237,16 @@ nav .nav-links.active {
   align-items: flex-start;
   gap: 1.5rem;
   padding: 1.5rem;
-  background: var(--bg-secondary);
-  border-radius: 2rem;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
   position: relative;
-  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
+  transform: translateY(20px);
   animation: fadeInUp 0.6s ease-out forwards;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .mesa-event-item::before {
@@ -3210,62 +3272,85 @@ nav .nav-links.active {
   opacity: 1;
 }
 
-.mesa-event-date {
+.mesa-event-icon {
   flex-shrink: 0;
   width: 4rem;
   height: 4rem;
-  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-soft));
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-white);
-  font-weight: 700;
-  box-shadow: var(--shadow-soft);
+  font-size: 1.5rem;
   position: relative;
   overflow: hidden;
+  border: 2px solid transparent;
+  color: white;
+  transition: all 0.3s ease;
 }
 
-.mesa-event-date::before {
+/* Category-specific icon colors */
+.mesa-icon-workshop {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  border-color: var(--color-primary-light);
+}
+
+.mesa-icon-seminar {
+  background: linear-gradient(135deg, #1f2937, #374151);
+  border-color: #374151;
+}
+
+.mesa-icon-guidance {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-soft));
+  border-color: var(--color-gold-soft);
+}
+
+.mesa-icon-community {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+  border-color: var(--color-accent-light);
+}
+
+.mesa-icon-industry {
+  background: linear-gradient(135deg, #059669, #10b981);
+  border-color: #10b981;
+}
+
+.mesa-icon-competition {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  border-color: #a855f7;
+}
+
+.mesa-icon-meeting {
+  background: linear-gradient(135deg, #6b7280, #9ca3af);
+  border-color: #9ca3af;
+}
+
+.mesa-icon-sports {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  border-color: #22c55e;
+}
+
+.mesa-event-icon::before {
   content: '';
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transform: rotate(45deg);
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg) translateX(-100%);
   transition: transform 0.6s ease;
 }
 
-.mesa-event-item:hover .mesa-event-date::before {
+.mesa-event-item:hover .mesa-event-icon::before {
   transform: rotate(45deg) translateX(100%);
-}
-
-.mesa-event-day {
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-.mesa-event-month {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.9;
-}
-
-.mesa-event-content {
-  flex: 1;
-  min-width: 0;
 }
 
 .mesa-event-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  margin-bottom: 1rem;
   gap: 1rem;
-  margin-bottom: 0.75rem;
   flex-wrap: wrap;
 }
 
@@ -3279,44 +3364,69 @@ nav .nav-links.active {
   min-width: 200px;
 }
 
+/* Event badges container */
+.mesa-event-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.mesa-event-content {
+  flex: 1;
+  min-width: 0;
+}
+
 .mesa-event-category {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 1.5rem;
-  color: var(--color-text-white);
-  font-size: 0.8rem;
+  gap: 0.3rem;
+  padding: 0.3rem 0.8rem;
+  color: white;
+  border-radius: 1rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-  box-shadow: var(--shadow-soft);
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.mesa-event-details {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 0.75rem;
-  flex-wrap: wrap;
+/* Category-specific badge colors */
+.mesa-category-workshop {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
 }
 
-.mesa-event-time,
-.mesa-event-location {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--color-text-secondary);
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin: 0;
+.mesa-category-seminar {
+  background: linear-gradient(135deg, #1f2937, #374151);
 }
 
-.mesa-event-time i,
-.mesa-event-location i {
-  color: var(--color-gold);
-  font-size: 0.8rem;
+.mesa-category-guidance {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-soft));
 }
+
+.mesa-category-community {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+}
+
+.mesa-category-industry {
+  background: linear-gradient(135deg, #059669, #10b981);
+}
+
+.mesa-category-competition {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+}
+
+.mesa-category-meeting {
+  background: linear-gradient(135deg, #6b7280, #9ca3af);
+}
+
+.mesa-category-sports {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+}
+
+/* Status badges removed - no longer displaying planned/scheduled status */
+
+/* Location styling removed - no longer displaying location information */
 
 .mesa-event-description {
   color: var(--color-text-muted);
@@ -3400,6 +3510,10 @@ nav .nav-links.active {
     gap: 1rem;
   }
 
+  .mesa-event-badges {
+    justify-content: center;
+  }
+
   .mesa-event-header {
     flex-direction: column;
     align-items: center;
@@ -3440,17 +3554,10 @@ nav .nav-links.active {
     padding: 1rem;
   }
 
-  .mesa-event-date {
+  .mesa-event-icon {
     width: 3.5rem;
     height: 3.5rem;
-  }
-
-  .mesa-event-day {
-    font-size: 1rem;
-  }
-
-  .mesa-event-month {
-    font-size: 0.6rem;
+    font-size: 1.3rem;
   }
 
   .mesa-event-title {

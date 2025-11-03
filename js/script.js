@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initPhotoSlider();
     initPhotoLightbox();
     initGSAPAnimations(); // Add GSAP animations
+    initImageLoading(); // Add image loading handler
 });
 
 // Mobile Menu Toggle
@@ -192,14 +193,15 @@ function initScrollAnimations() {
         const sr = ScrollReveal({
             origin: 'bottom',
             distance: '60px',
-            duration: 1000,
-            delay: 200,
-            easing: 'cubic-bezier(0.5, 0, 0, 1)',
-            reset: false, // Disabled reverse animation - elements stay visible once animated
-            viewFactor: 0.2,
+            duration: 800,
+            delay: 100,
+            easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+            reset: false, // Animation only plays once
+            viewFactor: 0.15,
             viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
             mobile: true,
-            cleanup: true
+            cleanup: true,
+            once: true // Ensure animation only happens once
         });
 
         // Hero section animations
@@ -234,14 +236,16 @@ function initScrollAnimations() {
             interval: 200
         });
 
-        // Event cards with stagger
-        sr.reveal('.event-card', {
-            origin: 'left',
-            distance: '80px',
-            duration: 800,
-            delay: 250,
-            interval: 200
-        });
+        // Event cards with stagger - only for non-home pages
+        if (!document.querySelector('.photo-slider')) {
+            sr.reveal('.event-card', {
+                origin: 'left',
+                distance: '80px',
+                duration: 800,
+                delay: 250,
+                interval: 200
+            });
+        }
 
         // Timeline items (for events page)
         sr.reveal('.timeline-item', {
@@ -1377,47 +1381,55 @@ function initGSAPAnimations() {
         }
     );
 
-    // Animate feature cards - optimized for home page
-    gsap.fromTo('.feature-card', 
-        {
-            opacity: 0,
-            y: 60,
-            rotationX: 15
-        },
-        {
-            opacity: 1,
-            y: 0,
-            rotationX: 0,
-            duration: 0.8,
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: '.features',
-                start: 'top 80%',
-                toggleActions: 'play none none reverse'
+    // Animate feature cards - only for home page
+    if (document.querySelector('.photo-slider')) {
+        gsap.fromTo('.features .feature-card', 
+            {
+                opacity: 0,
+                y: 40,
+                scale: 0.9
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.6,
+                stagger: 0.15,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.features',
+                    start: 'top 85%',
+                    toggleActions: 'play none none none', // Only play once
+                    once: true
+                }
             }
-        }
-    );
+        );
+    }
 
-    // Animate recent events - optimized for home page
-    gsap.fromTo('.event-card', 
-        {
-            opacity: 0,
-            y: 50,
-            scale: 0.9
-        },
-        {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.8,
-            stagger: 0.15,
-            scrollTrigger: {
-                trigger: '.recent-events',
-                start: 'top 80%',
-                toggleActions: 'play none none reverse'
+    // Animate recent events - only for home page, prevent conflicts
+    if (document.querySelector('.photo-slider')) {
+        gsap.fromTo('.recent-events .event-card', 
+            {
+                opacity: 0,
+                y: 30,
+                scale: 0.95
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.recent-events',
+                    start: 'top 85%',
+                    toggleActions: 'play none none none', // Only play once
+                    once: true
+                }
             }
-        }
-    );
+        );
+    }
 
     // Stats section animation handled by ScrollReveal only for better performance
 
@@ -1513,5 +1525,25 @@ function initGSAPAnimations() {
     }
 
     console.log('GSAP ScrollTrigger animations initialized');
+}
+
+// Image Loading Handler
+function initImageLoading() {
+    const images = document.querySelectorAll('.event-image img, .team-photo img, .photo-item img');
+    
+    images.forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', function() {
+                this.classList.add('loaded');
+            });
+            
+            img.addEventListener('error', function() {
+                this.style.opacity = '0.5';
+                this.style.filter = 'grayscale(100%)';
+            });
+        }
+    });
 }
 

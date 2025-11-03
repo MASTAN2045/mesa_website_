@@ -71,18 +71,24 @@ class MESACalendar {
         
         if (!eventsList) return;
 
-        // Filter events for current month
-        const currentMonth = this.currentDate.getMonth();
+        // Filter events for current month and year
+        const currentMonth = this.currentDate.getMonth() + 1; // JavaScript months are 0-indexed
         const currentYear = this.currentDate.getFullYear();
         
         const monthEvents = this.events.filter(event => {
-            const eventDate = new Date(event.date);
-            return eventDate.getMonth() === currentMonth && 
-                   eventDate.getFullYear() === currentYear;
+            // Handle both old format (with date) and new format (with month/year)
+            if (event.month && event.year) {
+                return event.month === currentMonth && event.year === currentYear;
+            } else if (event.date) {
+                const eventDate = new Date(event.date);
+                return eventDate.getMonth() === (currentMonth - 1) && 
+                       eventDate.getFullYear() === currentYear;
+            }
+            return false;
         });
 
-        // Sort events by date
-        monthEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+        // Sort events by title for consistent display
+        monthEvents.sort((a, b) => a.title.localeCompare(b.title));
 
         // Clear previous events
         eventsList.innerHTML = '';
@@ -117,33 +123,18 @@ class MESACalendar {
             icon: 'fas fa-calendar'
         };
 
-        // Format date
-        const eventDate = new Date(event.date);
-        const day = eventDate.getDate();
-        const monthName = this.monthNames[eventDate.getMonth()].substring(0, 3);
-
         eventDiv.innerHTML = `
-            <div class="mesa-event-date">
-                <span class="mesa-event-day">${day}</span>
-                <span class="mesa-event-month">${monthName}</span>
+            <div class="mesa-event-icon mesa-icon-${event.category}">
+                <i class="${category.icon}"></i>
             </div>
             <div class="mesa-event-content">
                 <div class="mesa-event-header">
                     <h3 class="mesa-event-title">${event.title}</h3>
-                    <span class="mesa-event-category" style="background-color: ${category.color}">
-                        <i class="${category.icon}"></i>
-                        ${category.name}
-                    </span>
-                </div>
-                <div class="mesa-event-details">
-                    <p class="mesa-event-time">
-                        <i class="fas fa-clock"></i>
-                        ${event.time}
-                    </p>
-                    <p class="mesa-event-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        ${event.location}
-                    </p>
+                    <div class="mesa-event-badges">
+                        <span class="mesa-event-category mesa-category-${event.category}">
+                            ${category.name}
+                        </span>
+                    </div>
                 </div>
                 <p class="mesa-event-description">${event.description}</p>
             </div>
