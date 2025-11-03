@@ -58,7 +58,7 @@
     },
     {
       "id": "dec2",
-      "title": "Online Alumni Meet",
+      "title": "Online Alumni Talk",
       "month": 12,
       "year": 2025,
       "plannedFor": "December 2025",
@@ -184,7 +184,7 @@
     },
     {
       "id": "mar3",
-      "title": "Talk",
+      "title": "Technical Talk",
       "month": 3,
       "year": 2026,
       "plannedFor": "March 2026",
@@ -240,7 +240,7 @@
     },
     {
       "id": "may2",
-      "title": "Online Alumni Meet",
+      "title": "Online Alumni Talk",
       "month": 5,
       "year": 2026,
       "plannedFor": "May 2026",
@@ -268,7 +268,7 @@
     },
     {
       "id": "jul1",
-      "title": "Online Alumni Meet",
+      "title": "Online Alumni Talk",
       "month": 7,
       "year": 2026,
       "plannedFor": "July 2026",
