@@ -288,6 +288,16 @@ body {
   flex-direction: column;
   cursor: pointer;
   gap: 0.25rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: rgba(245, 158, 11, 0.1);
+  border: 2px solid var(--color-gold);
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+  background: rgba(245, 158, 11, 0.2);
+  transform: scale(1.05);
 }
 
 .hamburger span {
@@ -295,6 +305,19 @@ body {
   height: 0.1875rem;
   background: var(--color-gold);
   transition: all 0.3s ease;
+  border-radius: 0.1rem;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* Photo Slider Section */
@@ -1249,10 +1272,63 @@ body {
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
+    z-index: 1001;
   }
   
   .nav-links {
     display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(17, 24, 39, 0.98);
+    backdrop-filter: blur(15px);
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+    border-top: 2px solid var(--color-gold);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+  
+  .nav-links.active {
+    display: flex !important;
+  }
+  
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-links a {
+    display: block;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    background: rgba(245, 158, 11, 0.1);
+    transform: translateX(5px);
+  }
+  
+  /* Mobile Photo Slider - Full Width */
+  .photo-slider {
+    height: 100vh;
+    margin-top: 0;
+  }
+  
+  .slide img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .slide-content {
+    padding: 1rem;
+    max-width: 90%;
   }
   
   .slide-title {
@@ -1299,23 +1375,37 @@ body {
   }
   
   .event-card {
-    height: auto;
-    min-height: 380px;
+    height: 420px;
+    min-height: 420px;
     margin: 1rem auto;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
   }
   
   .event-image {
     height: 200px;
+    flex-shrink: 0;
+  }
+  
+  .event-card .event-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
   }
   
   /* Representative cards use standard team-photo responsive styling */
   
   .team-photo {
-    padding: 15px;
+    padding: 12px;
+    max-width: 280px;
+    margin: 0 auto;
   }
   
   .team-photo img {
-    height: 280px;
+    height: 200px;
   }
   
   .stats-grid {
@@ -1367,7 +1457,8 @@ body {
   
   .team-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 15px;
+    padding: 0 10px;
   }
   
   .representatives-grid {
@@ -1376,21 +1467,35 @@ body {
   }
   
   .event-card {
-    height: auto;
-    min-height: 360px;
+    height: 400px;
+    min-height: 400px;
     margin: 0.75rem auto;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
   }
   
   .event-image {
     height: 180px;
+    flex-shrink: 0;
+  }
+  
+  .event-card .event-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.875rem;
   }
   
   .team-photo {
-    padding: 12px;
+    padding: 10px;
+    max-width: 260px;
+    margin: 0 auto;
   }
   
   .team-photo img {
-    height: 280px;
+    height: 180px;
   }
   
   /* Representative cards use standard team-photo responsive styling */
@@ -1398,6 +1503,14 @@ body {
   .section-title {
     font-size: 1.6rem;
     margin-bottom: 30px;
+  }
+  
+  .about-image {
+    max-width: 280px;
+  }
+  
+  .about-image img {
+    max-height: 220px;
   }
   
   .slide-title {
@@ -1768,7 +1881,18 @@ body {
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr;
-    gap: clamp(2rem, 6vw, 2.5rem);
+    gap: clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  .about-image {
+    order: -1;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .about-image img {
+    max-height: 250px;
+    border-radius: 1rem;
   }
   
   .timeline-item {
