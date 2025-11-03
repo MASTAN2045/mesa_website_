@@ -4432,7 +4432,7 @@ section:not(.photo-slider):not(.event-banner):not(.header):not(.footer) {
 /* Mobile image optimizations */
 @media (max-width: 768px) {
   .event-image img {
-    height: 180px;
+    height: 100%;
   }
   
   .photo-item img {
@@ -4442,7 +4442,7 @@ section:not(.photo-slider):not(.event-banner):not(.header):not(.footer) {
 
 @media (max-width: 480px) {
   .event-image img {
-    height: 160px;
+    height: 100%;
   }
   
   .photo-item img {
