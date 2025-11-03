@@ -49,6 +49,7 @@ img {
   object-position: center;
   border-radius: 0.5rem;
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 .photo-item:hover img {
@@ -367,6 +368,7 @@ body {
   height: 100%;
   object-fit: cover;
   filter: brightness(0.7);
+  will-change: opacity, transform;
 }
 
 .slide-content {
@@ -2230,6 +2232,10 @@ section:not(.photo-slider):not(.event-banner):not(.header):not(.footer) {
 
 /* Sections */
 .features { background: var(--bg-primary); }
+.features, .recent-events, .stats, .faculty-advisors, .core-team, .event-coordinators, .technical-team, .female-representatives, .photo-gallery, .mesa-calendar-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 600px;
+}
 .stats {
   background: var(--bg-gradient-dark);
   color: #f3f4f6;
@@ -4632,6 +4638,7 @@ section:not(.photo-slider):not(.event-banner):not(.header):not(.footer) {
   height: 60px;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
 }
